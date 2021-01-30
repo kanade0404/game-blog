@@ -12,7 +12,10 @@ import {Article} from '../../domain/article';
 const {Title, Text} = Typography;
 const {Header, Content, Footer} = Layout;
 
-const PageTitle = styled(Text)`
+const PageTitle = styled(Title)`
+  display: inline-block;
+`;
+const PageTitleText = styled(Text)`
   color: white;
 `;
 
@@ -34,10 +37,10 @@ const Home: React.FC = () => {
     <Layout style={{minHeight: '100vh'}}>
       <SideBar categories={categories} />
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{padding: 0}}>
-          <Title level={2}>
-            <PageTitle>{TITLE}</PageTitle>
-          </Title>
+        <Header className="site-layout-background">
+          <PageTitle level={2}>
+            <PageTitleText>{TITLE}</PageTitleText>
+          </PageTitle>
         </Header>
         <Content style={{margin: '0 16px'}}>
           <Breadcrumb style={{margin: '16px 0'}}>
