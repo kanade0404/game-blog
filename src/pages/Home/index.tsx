@@ -1,23 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import 'antd/dist/antd.css';
-import {Typography, Layout, Breadcrumb} from 'antd';
+import {Typography, Layout, Divider} from 'antd';
 import {FolderOutlined} from '@ant-design/icons';
-import styled from 'styled-components';
 import {findAll} from '../../driver/ArticleDriver';
-import {TITLE} from '../../core/const';
 import {SideBar} from '../coponents/SideBar';
 import {Category} from '../../domain/category';
 import {Article} from '../../domain/article';
+import {HeaderComponent} from '../coponents/Header';
 
-const {Title, Text} = Typography;
-const {Header, Content, Footer} = Layout;
-
-const PageTitle = styled(Title)`
-  display: inline-block;
-`;
-const PageTitleText = styled(Text)`
-  color: white;
-`;
+const {Title, Link} = Typography;
+const {Content, Footer} = Layout;
 
 const Home: React.FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -37,16 +29,8 @@ const Home: React.FC = () => {
     <Layout style={{minHeight: '100vh'}}>
       <SideBar categories={categories} />
       <Layout className="site-layout">
-        <Header className="site-layout-background">
-          <PageTitle level={2}>
-            <PageTitleText>{TITLE}</PageTitleText>
-          </PageTitle>
-        </Header>
+        <HeaderComponent />
         <Content style={{margin: '0 16px'}}>
-          <Breadcrumb style={{margin: '16px 0'}}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
           <div
             className="site-layout-background"
             style={{padding: 24, minHeight: 360}}
@@ -54,9 +38,12 @@ const Home: React.FC = () => {
             <div>
               {articles.map((article) => (
                 <div key={article.id} id={`${article.id}`}>
-                  <Title level={3}>{article.title}</Title>
+                  <Title level={3}>
+                    <Link href={`/article/${article.id}`}>{article.title}</Link>
+                  </Title>
                   <FolderOutlined />
                   <span>{article.category.name}</span>
+                  <Divider />
                 </div>
               ))}
             </div>
@@ -67,4 +54,5 @@ const Home: React.FC = () => {
     </Layout>
   );
 };
+
 export default Home;

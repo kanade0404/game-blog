@@ -5,10 +5,11 @@ import {Tag} from '../tag';
 
 export type Article = {
   category: Category;
-  content: string;
+  content: any;
   date: StringDate;
   image?: Image[];
   tag: Tag[];
   title: string;
   updatedAt: StringDate;
+  publishedAt: StringDate;
 };

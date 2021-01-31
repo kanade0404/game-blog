@@ -7,7 +7,7 @@ import {StringDate} from '../common/date';
 
 export type Article = {
   id: string;
-  content: string;
+  content: any;
   title: string;
   updatedAt: StringDate;
   category: Category;

@@ -18,9 +18,23 @@ const getContent = async (
   });
   return response.items;
 };
-export const findAll: () => Promise<Article[]> = async () => {
+const getDetailContent = async (
+  id: string
+): Promise<Entry<ContentfulArticle>> => {
+  const client = getClient();
+  return client.getEntry<ContentfulArticle>(id);
+};
+type FindAll = () => Promise<Article[]>;
+export const findAll: FindAll = async () => {
   const entryArticles = await getContent('blog');
-  return entryArticles.map((article) => {
-    return parseArticleFromContentfulArticle(article as any);
-  });
+  return entryArticles
+    .filter((article) => article.fields.publishedAt !== undefined)
+    .map((article) => {
+      return parseArticleFromContentfulArticle(article as any);
+    });
+};
+type FindDetail = (id: string) => Promise<Article>;
+export const findDetail: FindDetail = async (id) => {
+  const article = await getDetailContent(id);
+  return parseArticleFromContentfulArticle(article);
 };
