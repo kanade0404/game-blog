@@ -10,7 +10,7 @@ type SidebarProps = {
 };
 export const SideBar: React.FC<SidebarProps> = (props) => {
   const {categories} = props;
-  const [collapse, setCollapse] = useState(false);
+  const [collapse, setCollapse] = useState(true);
   const changeCollapse = () => {
     setCollapse(!collapse);
   };
