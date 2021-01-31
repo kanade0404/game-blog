@@ -43,6 +43,7 @@ const Detail: FC<DetailProps> = ({match}) => {
                 <Typography>
                   <Title>{articleState?.title}</Title>
                   <Paragraph style={{whiteSpace: 'pre-wrap'}}>
+                    {/* eslint-disable react/no-danger */}
                     <div
                       dangerouslySetInnerHTML={{
                         __html: documentToHtmlString(articleState?.content),

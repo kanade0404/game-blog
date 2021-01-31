@@ -30,7 +30,7 @@ export const findAll: FindAll = async () => {
   return entryArticles
     .filter((article) => article.fields.publishedAt !== undefined)
     .map((article) => {
-      return parseArticleFromContentfulArticle(article as any);
+      return parseArticleFromContentfulArticle(article);
     });
 };
 type FindDetail = (id: string) => Promise<Article>;
