@@ -5,8 +5,7 @@ import {Tag} from '../tag';
 
 export type Article = {
   category: Category;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  content: any;
+  content: string;
   date: StringDate;
   image?: Image[];
   tag: Tag[];

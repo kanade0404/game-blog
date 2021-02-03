@@ -1,6 +1,6 @@
-import React from 'react';
 import {Layout, Typography} from 'antd';
 import styled from 'styled-components';
+import React, {FC} from 'react';
 import {TITLE} from '../../../core/const';
 
 const {Title, Text, Link} = Typography;
@@ -11,7 +11,7 @@ const PageTitle = styled(Title)`
 const PageTitleText = styled(Text)`
   color: white;
 `;
-export const HeaderComponent: React.FC = () => {
+export const HeaderComponent: FC = () => {
   return (
     <Header className="site-layout-background">
       <PageTitle level={2}>

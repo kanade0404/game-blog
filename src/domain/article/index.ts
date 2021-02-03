@@ -7,8 +7,7 @@ import {StringDate} from '../common/date';
 
 export type Article = {
   id: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  content: any;
+  content: string;
   title: string;
   updatedAt: StringDate;
   category: Category;

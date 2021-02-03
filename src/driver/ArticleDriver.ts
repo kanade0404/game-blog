@@ -15,6 +15,7 @@ const getContent = async (
   const client = getClient();
   const response = await client.getEntries<ContentfulArticle>({
     content_type: contentType,
+    'fields.publishedAt[exists]': 'true',
   });
   return response.items;
 };
@@ -27,11 +28,9 @@ const getDetailContent = async (
 type FindAll = () => Promise<Article[]>;
 export const findAll: FindAll = async () => {
   const entryArticles = await getContent('blog');
-  return entryArticles
-    .filter((article) => article.fields.publishedAt !== undefined)
-    .map((article) => {
-      return parseArticleFromContentfulArticle(article);
-    });
+  return entryArticles.map((article) => {
+    return parseArticleFromContentfulArticle(article);
+  });
 };
 type FindDetail = (id: string) => Promise<Article>;
 export const findDetail: FindDetail = async (id) => {
