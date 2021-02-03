@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import {findAll, findDetail} from '../../driver/ArticleDriver';
 import {Article} from '../../domain/article';
 import {Category} from '../../domain/category';
-import BasePage from '../Base';
+import BasePage from '../BasePage';
 
 const {Title} = Typography;
 

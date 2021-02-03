@@ -6,7 +6,7 @@ import {RouteComponentProps} from 'react-router';
 import {findAll} from '../../driver/ArticleDriver';
 import {Category} from '../../domain/category';
 import {Article} from '../../domain/article';
-import BasePage from '../Base';
+import BasePage from '../BasePage';
 
 const {Title, Link} = Typography;
 
