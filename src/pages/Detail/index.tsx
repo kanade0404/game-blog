@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import {findAll, findDetail} from '../../driver/ArticleDriver';
 import {Article} from '../../domain/article';
 import {Category} from '../../domain/category';
-import Base from '../Base';
+import BasePage from '../Base';
 
 const {Title} = Typography;
 
@@ -37,7 +37,7 @@ const Detail: FC<DetailProps> = ({location, match, history}) => {
     </div>
   );
   return (
-    <Base
+    <BasePage
       history={history}
       location={location}
       match={match}

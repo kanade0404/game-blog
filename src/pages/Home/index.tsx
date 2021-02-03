@@ -6,7 +6,7 @@ import {RouteComponentProps} from 'react-router';
 import {findAll} from '../../driver/ArticleDriver';
 import {Category} from '../../domain/category';
 import {Article} from '../../domain/article';
-import Base from '../Base';
+import BasePage from '../Base';
 
 const {Title, Link} = Typography;
 
@@ -35,7 +35,7 @@ const Home: FC<RouteComponentProps> = ({history, location, match}) => {
     </div>
   ));
   return (
-    <Base
+    <BasePage
       history={history}
       location={location}
       match={match}

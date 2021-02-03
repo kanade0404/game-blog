@@ -3,7 +3,7 @@ import {RouteComponentProps} from 'react-router';
 import {Category} from '../../domain/category';
 import {findAll} from '../../driver/ArticleDriver';
 import Template from './components/Template';
-import Base from '../Base';
+import BasePage from '../Base';
 
 const Profile: FC<RouteComponentProps> = ({history, location, match}) => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -18,7 +18,7 @@ const Profile: FC<RouteComponentProps> = ({history, location, match}) => {
     initCategory();
   }, []);
   return (
-    <Base
+    <BasePage
       history={history}
       location={location}
       match={match}
