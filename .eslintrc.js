@@ -23,11 +23,20 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: 'module',
     project: './tsconfig.json',
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
   rules: {
+    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/prefer-interface": "off",
     'linebreak-style': 'off',
     'prettier/prettier': [
       'error',
@@ -36,6 +45,7 @@ module.exports = {
       },
     ],
     'react/prop-types': 'off',
-    'import/prefer-default-export': 'off'
+    'import/prefer-default-export': 'off',
+    "spaced-comment": ["error", "always", { "markers": ["/ <reference"] }]
   },
 };

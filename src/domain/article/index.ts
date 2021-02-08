@@ -9,10 +9,11 @@ export type Article = {
   id: string;
   content: string;
   title: string;
-  updatedAt: StringDate;
   category: Category;
   tag: Tag[];
   image: Image[];
+  createdAt: StringDate;
+  updatedAt: StringDate;
 };
 type ParseArticleFromContentfulArticle = (
   entry: Entry<ContentfulArticle>
@@ -29,6 +30,7 @@ export const parseArticleFromContentfulArticle: ParseArticleFromContentfulArticl
       : [],
     category: parseCategoryFromContentfulCategory(entry.fields.category),
     tag: entry.fields.tag.map((t) => parseTagFromContentfulTag(t)),
-    updatedAt: entry.fields.updatedAt,
+    createdAt: entry.sys.createdAt,
+    updatedAt: entry.sys.updatedAt,
   };
 };

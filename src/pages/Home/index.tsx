@@ -2,7 +2,6 @@ import React, {FC, useEffect, useState} from 'react';
 import 'antd/dist/antd.css';
 import {Typography, Divider} from 'antd';
 import {FolderOutlined} from '@ant-design/icons';
-import {RouteComponentProps} from 'react-router';
 import {findAll} from '../../driver/ArticleDriver';
 import {Category} from '../../domain/category';
 import {Article} from '../../domain/article';
@@ -10,7 +9,7 @@ import BasePage from '../BasePage';
 
 const {Title, Link} = Typography;
 
-const Home: FC<RouteComponentProps> = ({history, location, match}) => {
+const Home: FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   useEffect(() => {
@@ -35,13 +34,7 @@ const Home: FC<RouteComponentProps> = ({history, location, match}) => {
     </div>
   ));
   return (
-    <BasePage
-      history={history}
-      location={location}
-      match={match}
-      pageComponent={articleListElement}
-      categories={categories}
-    />
+    <BasePage pageComponent={articleListElement} categories={categories} />
   );
 };
 

@@ -1,20 +1,22 @@
 import {Menu, Layout} from 'antd';
 import {FolderOutlined, UserOutlined} from '@ant-design/icons';
 import React, {FC, useState} from 'react';
+import {useHistory} from 'react-router';
 import {Category} from '../../../domain/category';
 
 const {Sider} = Layout;
 const {SubMenu} = Menu;
 type SidebarProps = {
   categories: Category[];
-  toProfile: () => void;
 };
 export const SideBar: FC<SidebarProps> = (props) => {
-  const {categories, toProfile} = props;
+  const {categories} = props;
   const [collapse, setCollapse] = useState(true);
+  const history = useHistory();
   const changeCollapse = () => {
     setCollapse(!collapse);
   };
+  const toProfile = () => history.push('/profile');
   return (
     <Sider collapsible collapsed={collapse} onCollapse={changeCollapse}>
       <div className="logo" />

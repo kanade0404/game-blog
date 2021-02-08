@@ -10,6 +10,4 @@ export type Article = {
   image?: Image[];
   tag: Tag[];
   title: string;
-  updatedAt: StringDate;
-  publishedAt: StringDate;
 };

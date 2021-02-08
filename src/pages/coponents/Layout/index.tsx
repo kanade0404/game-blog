@@ -10,13 +10,12 @@ const {Content} = Layout;
 type LayoutProps = {
   categories: Category[];
   body: JSX.Element | JSX.Element[];
-  toProfile: () => void;
 };
 const LayoutComponent: FC<LayoutProps> = (props) => {
-  const {categories, body, toProfile} = props;
+  const {categories, body} = props;
   return (
     <Layout style={{minHeight: '100vh'}}>
-      <SideBar categories={categories} toProfile={toProfile} />
+      <SideBar categories={categories} />
       <Layout className="site-layout">
         <HeaderComponent />
         <Content style={{margin: '0 16px'}}>

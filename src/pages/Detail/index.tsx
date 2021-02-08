@@ -12,7 +12,7 @@ import BasePage from '../BasePage';
 const {Title} = Typography;
 
 type DetailProps = RouteComponentProps<{id: string}>;
-const Detail: FC<DetailProps> = ({location, match, history}) => {
+const Detail: FC<DetailProps> = ({match}) => {
   const [articleState, setArticle] = useState<Article>();
   const [categories, setCategory] = useState<Category[]>([]);
   useEffect(() => {
@@ -36,14 +36,6 @@ const Detail: FC<DetailProps> = ({location, match, history}) => {
       </Typography>
     </div>
   );
-  return (
-    <BasePage
-      history={history}
-      location={location}
-      match={match}
-      pageComponent={body}
-      categories={categories}
-    />
-  );
+  return <BasePage pageComponent={body} categories={categories} />;
 };
 export default Detail;
