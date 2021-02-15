@@ -4,12 +4,20 @@ import {Typography} from 'antd';
 import {FolderOutlined} from '@ant-design/icons';
 import Paragraph from 'antd/es/typography/Paragraph';
 import ReactMarkdown from 'react-markdown';
+import styled from 'styled-components';
 import {findAll, findDetail} from '../../driver/ArticleDriver';
 import {Article} from '../../domain/article';
 import {Category} from '../../domain/category';
 import BasePage from '../BasePage';
 
 const {Title} = Typography;
+
+const Markdown = styled(ReactMarkdown)`
+  img {
+    width: ${window.innerWidth - 160}px;
+    object-fit: contain;
+  }
+`;
 
 type DetailProps = RouteComponentProps<{id: string}>;
 const Detail: FC<DetailProps> = ({match}) => {
@@ -31,7 +39,7 @@ const Detail: FC<DetailProps> = ({match}) => {
       <Typography>
         <Title>{articleState?.title}</Title>
         <Paragraph style={{whiteSpace: 'pre-wrap'}}>
-          <ReactMarkdown>{articleState?.content || ''}</ReactMarkdown>
+          <Markdown>{articleState?.content || ''}</Markdown>
         </Paragraph>
       </Typography>
     </div>
