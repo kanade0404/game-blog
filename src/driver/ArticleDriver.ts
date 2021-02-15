@@ -15,7 +15,6 @@ const getContent = async (
   const client = getClient();
   const response = await client.getEntries<ContentfulArticle>({
     content_type: contentType,
-    'fields.publishedAt[exists]': 'true',
   });
   return response.items;
 };
