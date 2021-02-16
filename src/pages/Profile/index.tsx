@@ -16,7 +16,13 @@ const Profile: FC = () => {
     };
     initCategory();
   }, []);
-  return <BasePage pageComponent={<Template />} categories={categories} />;
+  return (
+    <BasePage
+      pageComponent={<Template />}
+      categories={categories}
+      title="プロフィール"
+    />
+  );
 };
 
 export default Profile;

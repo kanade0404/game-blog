@@ -44,6 +44,12 @@ const Detail: FC<DetailProps> = ({match}) => {
       </Typography>
     </div>
   );
-  return <BasePage pageComponent={body} categories={categories} />;
+  return (
+    <BasePage
+      pageComponent={body}
+      categories={categories}
+      title={articleState?.title}
+    />
+  );
 };
 export default Detail;
