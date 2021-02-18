@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import {Helmet} from 'react-helmet';
 import LayoutComponent from '../coponents/Layout';
 import {Category} from '../../domain/category';
 
@@ -11,7 +12,9 @@ const BasePage: FC<BasePageProps> = (props) => {
   const {pageComponent, categories, title} = props;
   return (
     <>
-      <title>{title ? `${title} | kanade.log` : 'kanade.log'}</title>
+      <Helmet>
+        <title>{title ? `${title} | kanade.log` : 'kanade.log'}</title>
+      </Helmet>
       <LayoutComponent categories={categories} body={pageComponent} />
     </>
   );
