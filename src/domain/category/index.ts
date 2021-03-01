@@ -1,6 +1,7 @@
 import {Category as ContentfulCategory} from '../contentful/category';
 
 export type Category = {
+  id: string;
   name: string;
 };
 type ParseCategoryFromContentfulCategory = ({

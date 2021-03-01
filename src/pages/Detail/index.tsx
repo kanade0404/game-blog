@@ -28,7 +28,12 @@ const Detail: FC<DetailProps> = ({match}) => {
       const article = await findDetail(match.params.id);
       setArticle(article);
       const articleList = await findAll();
-      setCategory(articleList.map((value) => ({name: value.category.name})));
+      setCategory(
+        articleList.map((value) => ({
+          id: value.category.id,
+          name: value.category.name,
+        }))
+      );
     };
     getArticle();
   }, []);

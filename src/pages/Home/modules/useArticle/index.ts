@@ -16,6 +16,7 @@ export const useArticle: UseArticle = (initArticles) => {
   const setCategoriesFromArticles = (articles: Article[]) => {
     const fetchedCategories: Category[] = articles.map((article) => {
       return {
+        id: article.category.id,
         name: article.category.name,
       };
     });

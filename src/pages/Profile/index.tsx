@@ -10,6 +10,7 @@ const Profile: FC = () => {
     const initCategory = async () => {
       const articleList = await findAll();
       const categoryList = articleList.map((article) => ({
+        id: article.category.id,
         name: article.category.name,
       }));
       setCategories(categoryList);
