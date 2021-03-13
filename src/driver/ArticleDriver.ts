@@ -31,6 +31,20 @@ export const findAll: FindAll = async () => {
     return parseArticleFromContentfulArticle(article);
   });
 };
+type FindFilter = (categoryId: string | null) => Promise<Article[]>;
+export const findFilter: FindFilter = async (categoryId) => {
+  const entryArticles = await getContent('blog');
+  return entryArticles
+    .map((article) => {
+      return parseArticleFromContentfulArticle(article);
+    })
+    .filter((article) => {
+      if (categoryId) {
+        return article.category.id === categoryId;
+      }
+      return article;
+    });
+};
 type FindDetail = (id: string) => Promise<Article>;
 export const findDetail: FindDetail = async (id) => {
   const article = await getDetailContent(id);
