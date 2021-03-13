@@ -17,6 +17,23 @@ export const SideBar: FC<SidebarProps> = (props) => {
     setCollapse(!collapse);
   };
   const toProfile = () => history.push('/profile');
+  const articleMenu =
+    history.location.pathname === '/' ? (
+      <Menu theme="dark" defaultSelectedKeys={['1']} mode="vertical">
+        <SubMenu key="sub2" icon={<FolderOutlined />} title="カテゴリ">
+          {categories.map((category) => (
+            <Menu.Item
+              key={category.name}
+              onClick={() => history.push(`/?category_id=${category.id}`)}
+            >
+              {category.name}
+            </Menu.Item>
+          ))}
+        </SubMenu>
+      </Menu>
+    ) : (
+      <></>
+    );
   return (
     <Sider collapsible collapsed={collapse} onCollapse={changeCollapse}>
       <div className="logo" />
@@ -27,13 +44,7 @@ export const SideBar: FC<SidebarProps> = (props) => {
           </Menu.Item>
         </SubMenu>
       </Menu>
-      <Menu theme="dark" defaultSelectedKeys={['1']} mode="vertical">
-        <SubMenu key="sub2" icon={<FolderOutlined />} title="カテゴリ">
-          {categories.map((category) => (
-            <Menu.Item key={category.name}>{category.name}</Menu.Item>
-          ))}
-        </SubMenu>
-      </Menu>
+      {articleMenu}
     </Sider>
   );
 };
