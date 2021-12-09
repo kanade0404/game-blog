@@ -46,7 +46,8 @@
     "lint:ts": "eslint '*/**/*.{js,jsx,ts,tsx}'",
     "lint:css": "stylelint \\\"*/**/*.{ts,tsx}\\\"",
     "fix": "eslint --fix ./ 'src/**/*.{js,jsx,ts,tsx}'",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
